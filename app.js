@@ -88,7 +88,6 @@ app.use(history({
 
 app.use(express.static('./public'));
 app.listen(config.port, () => {
-	console.log(
-		chalk.green(`成功监听端口：${config.port}`)
-	)
+	// chalk是一个颜色的插件。可以通过chalk.blue(‘hello world’)来改变颜色
+	console.log(chalk.green(`成功监听端口：${config.port}`))
 });
