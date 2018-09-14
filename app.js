@@ -24,19 +24,26 @@ app.all('*', (req, res, next) => {
 	}
 });
 
-// app.use(Statistic.apiRecord)
+// session持久化保存到mongoDB的工具connect-mongo
 const MongoStore = connectMongo(session);
-app.use(cookieParser());
-app.use(session({
-	  name: config.session.name,
+app.use(
+	session({
+	    name: config.session.name,
 		secret: config.session.secret,
 		resave: true,
 		saveUninitialized: false,
 		cookie: config.session.cookie,
 		store: new MongoStore({
-	  url: config.url
+			url: config.url
+		})
 	})
-}))
+)
+
+
+// 使用解析json的中间件
+app.use(cookieParser());
+
+
 
 // app.use(expressWinston.logger({
 //     transports: [
@@ -50,6 +57,7 @@ app.use(session({
 //     ]
 // }));
 
+// router是一个函数，需要传入app
 router(app);
 
 // app.use(expressWinston.errorLogger({
@@ -64,7 +72,20 @@ router(app);
 //     ]
 // }));
 
-app.use(history());
+/** 
+在express的静态文件夹设置为dist目录的时候，出现各种404错误，
+发现当路由模式为history的时候，后端会直接请求地址栏中的文件，这样就会出现找不到的情况，需要结合express的connect-history-api-fallback来处理。总体思路就是： 
+当请求满足以下条件的时候，该库会把请求地址转到默认（默认情况为index.html）:
+
+1、请求方式为GET（前端路由请求的当然要是GET）
+2、接受文件类型为text/html（即ajax请求中的dataType）
+3、与options.rewrites中提供的模式不匹配（即自定义规则中没写到的）
+*/
+app.use(history({
+    htmlAcceptHeaders: ['text/html', 'application/xhtml+xml']
+}));
+
+
 app.use(express.static('./public'));
 app.listen(config.port, () => {
 	console.log(
