@@ -43,20 +43,6 @@ app.use(
 // 使用解析json的中间件
 app.use(cookieParser());
 
-
-
-// app.use(expressWinston.logger({
-//     transports: [
-//         new (winston.transports.Console)({
-//           json: true,
-//           colorize: true
-//         }),
-//         new winston.transports.File({
-//           filename: 'logs/success.log'
-//         })
-//     ]
-// }));
-
 // router是一个函数，需要传入app
 router(app);
 
