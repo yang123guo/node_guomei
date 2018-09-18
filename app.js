@@ -1,7 +1,11 @@
 import express from 'express';
 import config from 'config-lite';
+
+// router这里是入口
 import router from './routes/index.js';
-import cookieParser from 'cookie-parser'
+
+
+import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
 import history from 'connect-history-api-fallback';

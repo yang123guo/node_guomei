@@ -6,6 +6,7 @@ import crypto from 'crypto'
 import formidable from 'formidable'
 import dtime from 'time-formater'
 
+// Admin实例
 class Admin extends AddressComponent {
 	constructor(){
 		super()
