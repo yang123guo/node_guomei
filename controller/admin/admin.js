@@ -2,6 +2,9 @@
 
 import AdminModel from '../../models/admin/admin'
 import AddressComponent from '../../prototype/addressComponent'
+
+//  加密模块
+// Nodejs用C/C++实现这些算法后，通过cypto这个模块暴露为JavaScript接口
 import crypto from 'crypto'
 import formidable from 'formidable'
 import dtime from 'time-formater'
@@ -153,12 +156,19 @@ class Admin extends AddressComponent {
 			}
 		})
 	}
+	// 一个加密算法
 	encryption(password){
 		const newpassword = this.Md5(this.Md5(password).substr(2, 7) + this.Md5(password));
 		return newpassword
 	}
 	Md5(password){
+		// MD5是一种常用的哈希算法，用于给任意数据一个“签名”。
+		// 这个签名通常用一个十六进制的字符串表示
+		// 创建并返回一个hash对象，它是一个指定算法的加密hash，用于生成hash摘要
+		// 'sha1', 'md5', 'sha256', 'sha512'
 		const md5 = crypto.createHash('md5');
+		// update: 更新hash的内容为指定的data。当使用流数据时可能会多次调用该方法
+		// digest: 计算所有传入数据的hash摘要。参数encoding（编码方式）可以为'hex', 'binary' 或者'base64'。
 		return md5.update(password).digest('base64');
 	}
 	async singout(req, res, next){
