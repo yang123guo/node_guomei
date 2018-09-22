@@ -24,6 +24,7 @@ app.all('*', (req, res, next) => {
 	if (req.method == 'OPTIONS') {
 	  	res.sendStatus(200);
 	} else {
+		// next() 执行下面的，不阻断
 	    next();
 	}
 });
