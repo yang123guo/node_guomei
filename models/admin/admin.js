@@ -17,6 +17,7 @@ const adminSchema = new Schema({
 
 adminSchema.index({id: 1});
 
+// Admin 数据库是 admins
 const Admin = mongoose.model('Admin', adminSchema);
 
 
