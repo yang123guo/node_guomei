@@ -36,7 +36,11 @@ export default app => {
 	app.use('/ugc', ugc);
 	app.use('/bos', bos);
 	app.use('/eus', eus);
+
+	// 以下都是子路由
 	app.use('/admin', admin);
+
+	
 	app.use('/member', member);
 	app.use('/statis', statis);
 	app.use('/shopping', shopping);
