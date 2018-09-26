@@ -28,8 +28,6 @@ export default app => {
 	// 路由匹配到/v1的时候，执行v1回调函数
 	app.use('/v1', v1);
 
-
-
 	app.use('/v2', v2);
 	app.use('/v3', v3);
 	app.use('/v4', v4);
@@ -40,7 +38,7 @@ export default app => {
 	// 以下都是子路由
 	app.use('/admin', admin);
 
-	
+
 	app.use('/member', member);
 	app.use('/statis', statis);
 	app.use('/shopping', shopping);
