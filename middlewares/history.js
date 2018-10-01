@@ -1,9 +1,4 @@
 // 'use strict'
-
-// 备注
-
-
-
 // export default (req, res, next) => {
 // 	if ((/manage/gi).test(req.url)) {
 // 		res.sendFile(__dirname + '/public/manage/index.html')
