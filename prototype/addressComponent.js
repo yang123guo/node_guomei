@@ -5,14 +5,16 @@ import BaseComponent from './baseComponent'
 /*
 腾讯地图和百度地图API统一调配组件
  */
+
+
 class AddressComponent extends BaseComponent {
 	constructor(){
 		super();
-		// this.tencentkey = 'RLHBZ-WMPRP-Q3JDS-V2IQA-JNRFH-EJBHL';
-		// this.tencentkey2 = 'RRXBZ-WC6KF-ZQSJT-N2QU7-T5QIT-6KF5X';
-		// this.tencentkey3 = 'OHTBZ-7IFRG-JG2QF-IHFUK-XTTK6-VXFBN';
-		// this.baidukey = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
-		// this.baidukey2 = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
+		this.tencentkey = 'RLHBZ-WMPRP-Q3JDS-V2IQA-JNRFH-EJBHL';
+		this.tencentkey2 = 'RRXBZ-WC6KF-ZQSJT-N2QU7-T5QIT-6KF5X';
+		this.tencentkey3 = 'OHTBZ-7IFRG-JG2QF-IHFUK-XTTK6-VXFBN';
+		this.baidukey = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
+		this.baidukey2 = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
 	}
 	//获取定位地址
 	async guessPosition(req){
