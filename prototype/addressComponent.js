@@ -6,7 +6,6 @@ import BaseComponent from './baseComponent'
 腾讯地图和百度地图API统一调配组件
  */
 
-
 class AddressComponent extends BaseComponent {
 	constructor(){
 		super();
